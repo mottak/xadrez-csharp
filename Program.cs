@@ -1,4 +1,5 @@
 ﻿using System;
+using tabuleiro;
 
 namespace MyApp // Note: actual namespace depends on the project name.
 {
@@ -6,7 +7,11 @@ namespace MyApp // Note: actual namespace depends on the project name.
   {
     static void Main(string[] args)
     {
-      Console.WriteLine("Hello World!");
+      Posicao P;
+      P = new Posicao(3, 4);
+      System.Console.WriteLine($"Posição: {P}");
+      System.Console.WriteLine();
+
     }
   }
 }
