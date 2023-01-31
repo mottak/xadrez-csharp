@@ -1,15 +1,15 @@
 ﻿using System;
 using tabuleiro;
 
-namespace MyApp // Note: actual namespace depends on the project name.
+namespace TabuleiroXadrez
 {
   internal class Program
   {
     static void Main(string[] args)
     {
-      Posicao P;
-      P = new Posicao(3, 4);
-      System.Console.WriteLine($"Posição: {P}");
+      Tabuleiro tab;
+      tab = new Tabuleiro(8, 8);
+      Tela.imprimirTabuleiro(tab);
       System.Console.WriteLine();
 
     }
