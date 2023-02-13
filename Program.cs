@@ -16,6 +16,7 @@ namespace TabuleiroXadrez
         tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(2, 5));
         tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(5, 0));
         tab.colocarPeca(new Rei(tab, Cor.Preta), new Posicao(0, 5));
+        tab.colocarPeca(new Rei(tab, Cor.Branca), new Posicao(1, 5));
 
         Tela.imprimirTabuleiro(tab);
         System.Console.WriteLine();
@@ -25,6 +26,12 @@ namespace TabuleiroXadrez
       {
 
       }
+
+      PosicaoXadrez posicao = new PosicaoXadrez('c', 7);
+
+      Console.WriteLine(posicao.ToPosicao());
+
+
 
     }
   }
