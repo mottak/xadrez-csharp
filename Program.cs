@@ -12,14 +12,28 @@ namespace TabuleiroXadrez
       {
         PartidaDeXadez partida = new PartidaDeXadez();
 
+        while (!partida.terminada)
+        {
+          Console.Clear();
+          Tela.imprimirTabuleiro(partida.tab);
 
-        Tela.imprimirTabuleiro(partida.tab);
+          Console.WriteLine("Origem:");
+          Posicao origem = Tela.lerPoscaoXadrez().ToPosicao();
+
+          Console.WriteLine("Destino:");
+          Posicao destino = Tela.lerPoscaoXadrez().ToPosicao();
+
+          partida.executarMovimento(origem, destino);
+
+        }
+
+
         System.Console.WriteLine();
 
       }
       catch (TabuleiroException e)
       {
-
+        System.Console.WriteLine("deu ruim");
       }
 
 
