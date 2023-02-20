@@ -20,6 +20,13 @@ namespace TabuleiroXadrez
           Console.WriteLine("Origem:");
           Posicao origem = Tela.lerPoscaoXadrez().ToPosicao();
 
+          bool[,] posicoesPosiveis = partida.tab.peca(origem).movimentosPosiveis();
+
+          // a partir da peça que está na origem, vão ser impressas as casas onde essa peça pode-se mover
+          Console.Clear();
+          Tela.imprimirTabuleiro(partida.tab, posicoesPosiveis);
+
+
           Console.WriteLine("Destino:");
           Posicao destino = Tela.lerPoscaoXadrez().ToPosicao();
 
