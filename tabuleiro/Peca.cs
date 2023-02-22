@@ -3,7 +3,7 @@ using tabuleiro;
 namespace tabuleiro
 {
 
-  class Peca
+  abstract class Peca
   {
     public Posicao posicao { get; set; }
     public Cor cor { get; set; }
@@ -21,5 +21,31 @@ namespace tabuleiro
     {
       qtdMovimentos++;
     }
+    public void decrementarQtdMovimentos()
+    {
+      qtdMovimentos--;
+    }
+
+
+    public bool existeMovimentosPossiveis()
+    {
+      bool[,] mat = movimentosPosiveis();
+      for (int i = 0; i < tab.linhas; i++)
+      {
+        for (int j = 0; j < tab.colunas; j++)
+        {
+          if (mat[i, j])
+          {
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+    public bool movimentoPossivel(Posicao pos)
+    {
+      return movimentosPosiveis()[pos.Linha, pos.Coluna];
+    }
+    public abstract bool[,] movimentosPosiveis();
   }
 }

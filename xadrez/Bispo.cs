@@ -2,9 +2,9 @@ using tabuleiro;
 
 namespace xadrez
 {
-  class Torre : Peca
+  class Bispo : Peca
   {
-    public Torre(Tabuleiro tab, Cor cor) : base(tab, cor)
+    public Bispo(Tabuleiro tab, Cor cor) : base(tab, cor)
     {
 
     }
@@ -20,8 +20,8 @@ namespace xadrez
       bool[,] matriz = new bool[tab.linhas, tab.colunas];
       Posicao pos = new Posicao(0, 0);
 
-      // posição acima
-      pos.definirValores(posicao.Linha - 1, posicao.Coluna);
+      // posição noroeste
+      pos.definirValores(posicao.Linha - 1, posicao.Coluna - 1);
       while (tab.posicaoValida(pos) && podeMover(pos))
       {
         matriz[pos.Linha, pos.Coluna] = true;
@@ -29,11 +29,11 @@ namespace xadrez
         {
           break;
         }
-        pos.Linha = pos.Linha - 1;
+        pos.definirValores(pos.Linha - 1, pos.Coluna - 1);
       }
 
-      // posição abaixo
-      pos.definirValores(posicao.Linha + 1, posicao.Coluna);
+      // posição nordeste
+      pos.definirValores(posicao.Linha - 1, posicao.Coluna + 1);
       while (tab.posicaoValida(pos) && podeMover(pos))
       {
         matriz[pos.Linha, pos.Coluna] = true;
@@ -41,11 +41,11 @@ namespace xadrez
         {
           break;
         }
-        pos.Linha = pos.Linha + 1;
+        pos.definirValores(pos.Linha - 1, pos.Coluna + 1);
       }
 
-      // posição a direita
-      pos.definirValores(posicao.Linha, posicao.Coluna + 1);
+      // posição sudeste
+      pos.definirValores(posicao.Linha + 1, posicao.Coluna + 1);
       while (tab.posicaoValida(pos) && podeMover(pos))
       {
         matriz[pos.Linha, pos.Coluna] = true;
@@ -53,11 +53,11 @@ namespace xadrez
         {
           break;
         }
-        pos.Coluna = pos.Coluna + 1;
+        pos.definirValores(pos.Linha + 1, pos.Coluna + 1);
       }
 
-      // posição esqueda
-      pos.definirValores(posicao.Linha, posicao.Coluna - 1);
+      // posição sudoeste
+      pos.definirValores(posicao.Linha + 1, posicao.Coluna - 1);
       while (tab.posicaoValida(pos) && podeMover(pos))
       {
         matriz[pos.Linha, pos.Coluna] = true;
@@ -65,7 +65,7 @@ namespace xadrez
         {
           break;
         }
-        pos.Coluna = pos.Coluna - 1;
+        pos.definirValores(pos.Linha + 1, pos.Coluna - 1);
       }
 
       return matriz;
@@ -73,7 +73,7 @@ namespace xadrez
 
     public override string ToString()
     {
-      return "T";
+      return "B";
     }
   }
 }
